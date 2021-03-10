@@ -1,8 +1,17 @@
+import React from 'react';
+import SignIn from '../src/pages/SignIn';
+import GlobalStyle from './styles/global';
 
 function App() {
+  
   return (
-    <h1>Joezer</h1>
+    <>
+      <SignIn/>
+      <GlobalStyle/>
+    </>
   );
+
+
 }
 
 export default App;
