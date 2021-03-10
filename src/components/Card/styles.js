@@ -3,7 +3,8 @@ import styled from 'styled-components';
 
 export const ContainerSignIn = styled.div`
   max-width:730px;  
-  width: calc (100% - 20px);
+  width: calc(100% - 20px);
+  
   background-color: var(--white);
   display: flex; 
   justify-content: space-between;

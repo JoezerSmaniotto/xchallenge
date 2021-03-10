@@ -1,28 +1,10 @@
 import React, {useState} from 'react';
-//import ReactDOM from "react-dom";
-// import { useForm } from "react-hook-form";
-// import { yupResolver } from "@hookform/resolvers/yup";
-// import * as yup from "yup";
-// import { TextField, Button, Input } from '@material-ui/core';
-import {  Button, TextField} from '@material-ui/core';
-import IconButton from "@material-ui/core/IconButton";
-import Input from "@material-ui/core/Input";
-import FilledInput from '@material-ui/core/FilledInput';
-import InputLabel from "@material-ui/core/InputLabel";
-import InputAdornment from "@material-ui/core/InputAdornment";
+
+import {  Button, TextField,IconButton, FilledInput, InputLabel, InputAdornment , FormControl} from '@material-ui/core';
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
-import FormControl from "@material-ui/core/FormControl";
 
 import {ContentForm} from './styles'; 
-
-
-// const SignupSchema = yup.object().shape({
-//     email: yup.string().required('Nome obrigatório').email('Informe email'),
-//     password: yup.string().required('Senha obrigatório'),
-
-// });
-  
 
 
 const Form = ( ) => { 
@@ -80,23 +62,23 @@ const Form = ( ) => {
     const handleMouseDownPassword = (event) => {
     event.preventDefault();
     };
-
-
-    /* ------------------------*/
-
-    // const { register, handleSubmit, errors } = useForm({
-    //     resolver: yupResolver(SignupSchema)
-    // });
-  
     
-    // const onSubmit = (data) => {
-    //     alert(JSON.stringify(data));
-    // };
+
+    const onSubmitForm = () => {
+    
+        if(!errors.errorPassword && !errors.errorEmail){
+            const data = {
+                password: values.password,
+                email: values.email,
+            }
+            alert(JSON.stringify(data))
+        }
+    
+    };
   
     return (
         <ContentForm>
             <p className="titleForm">Faça seu login</p>
-            {/* <form onSubmit={handleSubmit(onSubmit)} noValidate > */}
             <form  noValidate >
                
                 <TextField
@@ -104,7 +86,6 @@ const Form = ( ) => {
                     id="filled-start-adornment"
                     variant="filled"
                     onChange={handleChange('email')}
-                    // onMouseDown={handleChangeVerifyFields('errorEmail')}
                     onBlur={handleChangeVerifyFields('errorEmail')}
                 />
                 {errors.errorEmail &&  (
@@ -119,7 +100,6 @@ const Form = ( ) => {
                         type={values.showPassword ? 'text' : 'password'}
                         value={values.password}
                         onChange={handleChange('password')}
-                        // onMouseDown={handleChangeVerifyFields('errorPassword')}
                         onBlur={handleChangeVerifyFields('errorPassword')}
                         endAdornment={
                         <InputAdornment position="end">
@@ -139,13 +119,7 @@ const Form = ( ) => {
                     <p className="errorValidate">Informe uma senha com mais de 6 caracteres!</p>
                 )}
 
-
-                    
-
-               
-                {/* <button type="submit">Login</button>                 */}
-                {/* <Button variant="outlined" color="secondary" onClick = { handleSubmit ( onSubmit ) } > */}
-                <div className="hugbutton">
+                <div className="hugbutton" onClick={onSubmitForm}>
                     <Button variant="outlined" >
                         ENTRAR
                     </Button>
