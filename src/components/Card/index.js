@@ -1,6 +1,6 @@
 import React from 'react';
 import Form from '../Form';
-import {ContainerSignIn} from './styles';  
+import {ContainerSignIn, ContainerImg} from './styles';  
 
 
 const Card = ( ) => {
@@ -8,9 +8,9 @@ const Card = ( ) => {
     return(
         <ContainerSignIn>
          
-            <div className="HugImg"> 
+            <ContainerImg> 
               <img src="https://www.xtrategie.com.br/wp-content/uploads/2019/08/logo_xtrategie.png" alt="Imagem xtrategie"/>
-            </div>
+            </ContainerImg>
             <div>
               <Form/>
             </div> 
