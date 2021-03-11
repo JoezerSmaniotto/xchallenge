@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import { useDispatch } from 'react-redux';
+import {setCustomer} from '../../store/modules/login/actions';
 
 import {  Button, TextField,IconButton, FilledInput, InputLabel, InputAdornment , FormControl} from '@material-ui/core';
 import Visibility from "@material-ui/icons/Visibility";
@@ -73,7 +74,7 @@ const Form = ( ) => {
                 password: values.password,
                 email: values.email,
             }
-            dispatch({type: '@login/SET_CUSTOMER',customer })
+            dispatch(setCustomer(customer));
             // alert(JSON.stringify(customer))
         }
     
