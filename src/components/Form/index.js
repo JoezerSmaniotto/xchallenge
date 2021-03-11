@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { useDispatch } from 'react-redux';
 
 import {  Button, TextField,IconButton, FilledInput, InputLabel, InputAdornment , FormControl} from '@material-ui/core';
 import Visibility from "@material-ui/icons/Visibility";
@@ -8,6 +9,7 @@ import {ContentForm} from './styles';
 
 
 const Form = ( ) => { 
+    const dispatch = useDispatch();
     const [values, setValues] = useState({
         password: "",
         showPassword: false,
@@ -67,11 +69,12 @@ const Form = ( ) => {
     const onSubmitForm = () => {
     
         if(!errors.errorPassword && !errors.errorEmail){
-            const data = {
+            const customer = {
                 password: values.password,
                 email: values.email,
             }
-            alert(JSON.stringify(data))
+            dispatch({type: '@login/SET_CUSTOMER',customer })
+            // alert(JSON.stringify(customer))
         }
     
     };
